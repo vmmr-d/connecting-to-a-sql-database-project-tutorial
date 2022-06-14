@@ -1,4 +1,5 @@
-
+from sqlalchemy import create_engine
+import pandas as pd
 
 # 1) Connect to the database here using the SQLAlchemy's create_engine function
 
