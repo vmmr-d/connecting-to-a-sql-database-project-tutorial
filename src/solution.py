@@ -1,5 +1,8 @@
 from sqlalchemy import create_engine
 import pandas as pd
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # 1) Connect to the database here using the SQLAlchemy's create_engine function
 connection_string = f"mysql+pymysql://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}@{os.getenv('DB_HOST')}/{os.getenv('DB_NAME')}?autocommit=true"
