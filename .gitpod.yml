@@ -12,4 +12,4 @@ ports:
 vscode:
   extensions:
     - ms-toolsai.jupyter
-    - vscode.python
+    - ms-python.python
