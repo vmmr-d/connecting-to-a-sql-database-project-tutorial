@@ -1,6 +1,6 @@
 {
     "workbench.startupEditor": "readme",
     "workbench.editorAssociations": {
-        "*.md": 
+        "*.md": "vscode.markdown.preview.editor"
     }
 }
