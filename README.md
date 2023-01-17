@@ -9,7 +9,7 @@
 
 Inside this repository, you will find a file called `./INSTRUCTIONS.md` with the steps needed to complete it.
 
-## 🌱  How to start this project
+## 🌱 How to start this project
 
 The easiest way to start working on this project is by using Gitpod:
 
