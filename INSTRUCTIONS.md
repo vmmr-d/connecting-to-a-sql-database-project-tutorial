@@ -12,28 +12,28 @@
 7. Wait a couple of seconds, once is installed, go to your project resources tab and the JawDB MariaDB service should be listed there as "installed addon".
 ![install jawdb](./assets/bjEDNLpKKq.gif)
 8. Click on the `JawDB Maria` addon and it will show your database credentials.
-9. This is a sample on [how your database credentials will look like](./assets/JawsDB.png).
+9. This is a sample of [how your database credentials will look like](./assets/JawsDB.png).
 
 
 ## Part 2: Understand your project template structure
 
-Your SQL database has been created, but there are not tables yet. You are going to connect to your empty MariaDB database and create some tables from Python using SQL Scripts we have alreadly provided for you inside the `./src/sql/` folder:
+Your SQL database has been created, but there are no tables yet. You are going to connect to your empty MariaDB database and create some tables from Python using SQL Scripts we have alreadly provided for you inside the `./src/sql/` folder:
 
 - `./src/sql/create.sql` with all the tables you need to create. Hands on creating those tables.
 - `./src/sql/insert.sql` with all the table values to be inserted into each table.
-- `./src/sql/drop.sql` contains the SQL code to delete the tables, very usefull to clean your database.
+- `./src/sql/drop.sql` contains the SQL code to delete the tables, very useful to clean your database.
 
 Other important things to mention about the structure:
 
-- Professional projects usually have a `./src` folder that contain all the "coding files" (the files that the developer will code).
+- Professional projects usually have a `./src` folder that contains all the "coding files" (the files that the developer will code).
 - The `./assets` is irrelevant to you, it contains all the images we needed for this tutorial.
-- The `root` of any professional project usally contains all the configuration files like `.gitignore`, `requirements.txt`, etc. You will learn more about this files during the rest of the project.
+- The `root` of any professional project usally contains all the configuration files like `.gitignore`, `requirements.txt`, etc. You will learn more about these files during the rest of the project.
 
 ### Part 3: Install dependencies
 
 There is a file in this project called `./requirements.txt` that contains the list of python libraries we will be using in this project like Pandas, PyMysql, SQLAlchemy, etc. Run the `pip install -r requirements.txt` command to install all the libraries at once.
 
-This is possible thanks to PIP (the most popular Python package manager) and its how professionals install they project dependencies.
+This is possible thanks to PIP (the most popular Python package manager) and how professionals install their project dependencies.
 
 > NOTE: Make sure the command does not output any errors in the terminal.
 
@@ -70,7 +70,7 @@ def connect():
     return engine
 ```
 
-## 📝 Instructions
+## 📝 Instructions:
 
 1. Let's create a file inside the `src` folder called `./src/app.py`.
 
