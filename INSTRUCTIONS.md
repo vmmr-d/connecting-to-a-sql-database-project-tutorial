@@ -85,8 +85,3 @@ def connect():
 5. Insert the data indicated in `./src/sql/insert.sql` to your recently created tables.
 
 6. Use pandas to print one of the tables as dataframes using read_sql function
-
-
-
-
-

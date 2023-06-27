@@ -2,7 +2,7 @@
 # Connecting to a SQL Database Project Tutorial
 <!-- endhide -->
 
-- Create a SQL database using the MariaDB endine on top Heroku.com.
+- Create a SQL database on top Render.com.
 - Understand and get used to the most basic profesional python project structure with PIP and `.env` file.
 - Use SQLAlchemy the most popular library in the industry for connecting to SQL databases.
 - Use Pandas to display SQL Tables as dataframes.
