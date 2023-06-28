@@ -2,7 +2,7 @@
 # Connecting to a SQL Database Project Tutorial
 <!-- endhide -->
 
-- Create a SQL database locally using 
+- Create a SQL database localy using the psql command.
 - Understand and get used to the most basic profesional python project structure with PIP and `.env` file.
 - Use SQLAlchemy the most popular library in the industry for connecting to SQL databases.
 - Use Pandas to display SQL Tables as dataframes.
@@ -35,6 +35,14 @@ We also incorporated the solution samples on `./src/solution.py` that we strongl
 
 # Postgres Commands
 
+Make sure the PSQL command line Postgres client is installed in your environment, you can try the following command to make sure.
+
+```
+$ psql --version
+```
+
+Note: If you get an error, try [following this instructions](https://www.timescale.com/blog/how-to-install-psql-on-mac-ubuntu-debian-windows/) to install psql on your computer.
+
 ## Delete Database
 
 Delete databases on your localhost with:
@@ -42,7 +50,7 @@ Delete databases on your localhost with:
 $ dropdb -h localhost -U <username> <db_name>
 ```
 
-## Create Database
+## Create a Database
 
 Create databases on your localhost with:
 ```
