@@ -63,7 +63,7 @@ Todo tu código de Python siempre debe estar dentro de la carpeta `src`, esta ta
 def connect():
     global engine # esto nos permite usar una variable global llamada motor
     # Una "cadena de conexión" es básicamente una cadena que contiene todas las credenciales de la base de datos juntas
-    connection_string = f"postgres://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}@{os.getenv('DB_HOST')}/{os.getenv('DB_NAME')}?autocommit=true"
+    connection_string = f"postgresql://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}@{os.getenv('DB_HOST')}/{os.getenv('DB_NAME')}?autocommit=true"
     print("Starting the connection...")
     engine = create_engine(connection_string)
     engine.connect()
@@ -87,6 +87,9 @@ def connect():
 6. Usa Pandas para imprimir una de las tablas como marcos de datos usando la función read_sql.
 
 
+## Tips Adicionales
 
-
-
+- Inicia session en tu base de datos usando: `psql -h localhost -u postgres`
+- Conectate a una base de datos remota usando: `psql -h <REMOTE HOST> -p <REMOTE PORT> -U <DB_USER> <DB_NAME>`
+- Elimina una base de datos: `$ dropdb -h localhost -U <username> <db_name>`
+- Crea una BD en la nube de render.com y conectate [following these commands](https://render.com/docs/databases#connecting-from-outside-render).

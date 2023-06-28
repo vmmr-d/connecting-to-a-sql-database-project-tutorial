@@ -65,7 +65,7 @@ All your Python code must always be inside the `src` folder, this is also anothe
 def connect():
     global engine # this allows us to use a global variable called engine
     # A "connection string" is basically a string that contains all the databse credentials together
-    connection_string = f"postgres://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}@{os.getenv('DB_HOST')}/{os.getenv('DB_NAME')}?autocommit=true"
+    connection_string = f"postgresql://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}@{os.getenv('DB_HOST')}/{os.getenv('DB_NAME')}?autocommit=true"
     print("Starting the connection...")
     engine = create_engine(connection_string)
     engine.connect()
