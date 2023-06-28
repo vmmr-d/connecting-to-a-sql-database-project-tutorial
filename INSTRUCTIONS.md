@@ -1,23 +1,25 @@
 # Connecting to a SQL database from Python
 
-## Part 1: Creating a cloud database using Heroku
+## Part 1: Creating a database locally
 
-1. Create an account at heroku.com
-2. Login into your heroku account
-3. Create a [new application](https://dashboard.heroku.com/new-app).
-4. Look for application "addons" on [the Heroku Marketplace]( https://elements.heroku.com/addons), the MySQL database will be an "addon" to your application.
-5. Look for the [JawDB Maria DB](./assets/jawdb.png) addon and open it by clickin on it.
-6. Once you are in the [official JawDB / MariaDB addon landing page](https://elements.heroku.com/addons/jawsdb-maria), install JawDB [into your application](./assets/mariadb.png), pick the `Free plan` and search for your app.
-![install jawdb](./assets/dyml1T8uI3.gif)
-7. Wait a couple of seconds, once is installed, go to your project resources tab and the JawDB MariaDB service should be listed there as "installed addon".
-![install jawdb](./assets/bjEDNLpKKq.gif)
-8. Click on the `JawDB Maria` addon and it will show your database credentials.
-9. This is a sample of [how your database credentials will look like](./assets/JawsDB.png).
+Make sure the PSQL command line Postgres client is installed in your environment, you can try the following command to make sure.
+
+```
+$ psql --version
+```
+
+Note: If you get an error, try [following this instructions](https://www.timescale.com/blog/how-to-install-psql-on-mac-ubuntu-debian-windows/) to install psql on your computer.
+
+
+1. Create a Database with `createdb -h localhost -U <username> <db_name>`.
+2. Connect to the Posgres command line client with `$ psql -h localhost -U <username> <db_name>`
+
+You are able to run any SQL command inside your recently created database, you can do queries, create tables, delete tables, etc.
 
 
 ## Part 2: Understand your project template structure
 
-Your SQL database has been created, but there are no tables yet. You are going to connect to your empty MariaDB database and create some tables from Python using SQL Scripts we have alreadly provided for you inside the `./src/sql/` folder:
+Your SQL database has been created, but there are no tables yet. You are going to connect to your empty database and create some tables from Python using SQL Scripts we have alreadly provided for you inside the `./src/sql/` folder:
 
 - `./src/sql/create.sql` with all the tables you need to create. Hands on creating those tables.
 - `./src/sql/insert.sql` with all the table values to be inserted into each table.
@@ -31,7 +33,7 @@ Other important things to mention about the structure:
 
 ### Part 3: Install dependencies
 
-There is a file in this project called `./requirements.txt` that contains the list of python libraries we will be using in this project like Pandas, PyMysql, SQLAlchemy, etc. Run the `pip install -r requirements.txt` command to install all the libraries at once.
+There is a file in this project called `./requirements.txt` that contains the list of python libraries we will be using in this project like Pandas, psycopg2, SQLAlchemy, etc. Run the `pip install -r requirements.txt` command to install all the libraries at once.
 
 This is possible thanks to PIP (the most popular Python package manager) and how professionals install their project dependencies.
 
@@ -51,7 +53,7 @@ DB_HOST = 'f565gmi022AD.cbetxkdyhwsb.us-east-1.rds.amazonaws.com'
 DB_NAME = 'y9uflxvx2hsf11g3f'
 ```
 
-Note: Please make sure to replace this values with your real database credentials found on the JawDB Maria dashboard.
+Note: Please make sure to replace this values with your real database credentials.
 
 ### Part 5: Start coding
 
@@ -63,7 +65,7 @@ All your Python code must always be inside the `src` folder, this is also anothe
 def connect():
     global engine # this allows us to use a global variable called engine
     # A "connection string" is basically a string that contains all the databse credentials together
-    connection_string = f"mysql+pymysql://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}@{os.getenv('DB_HOST')}/{os.getenv('DB_NAME')}?autocommit=true"
+    connection_string = f"postgres://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}@{os.getenv('DB_HOST')}/{os.getenv('DB_NAME')}?autocommit=true"
     print("Starting the connection...")
     engine = create_engine(connection_string)
     engine.connect()
@@ -85,3 +87,11 @@ def connect():
 5. Insert the data indicated in `./src/sql/insert.sql` to your recently created tables.
 
 6. Use pandas to print one of the tables as dataframes using read_sql function
+
+
+## Aditional tips
+
+- To login inside postgress localy you can run: `psql -h localhost -u postgres`
+- Connect to a remote database: `psql -h <REMOTE HOST> -p <REMOTE PORT> -U <DB_USER> <DB_NAME>`
+- Delete databases on your localhost with: `$ dropdb -h localhost -U <username> <db_name>`
+- You can try creating a cloud database on render.com by [following these commands](https://render.com/docs/databases#connecting-from-outside-render).

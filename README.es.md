@@ -2,12 +2,12 @@
 # Tutorial de conexión a un Proyecto de Base de Datos SQL  
 <!-- endhide -->
 
-- Crea una base de datos SQL utilizando MariaDB endine en la parte superior Heroku.com.
+- Crea una base de datos SQL en tu ambiente local utilizando psql.
 - Comprende y acostumbrate a la estructura de proyecto de python profesional más básica con PIP y archivo `.env`.
 - Use SQLAlchemy, la biblioteca más popular de la industria para conectarse a bases de datos SQL.
 - Usa Pandas para mostrar tablas SQL como marcos de datos.
 
-Dentro de este repositorio, encontrarás un archivo llamado `./INSTRUCTIONS.md` con los pasos necesarios para completarlo.
+Dentro de este repositorio, encontrarás un archivo llamado `./INSTRUCTIONS.es.md` con los pasos necesarios para completarlo.
 
 ## 🌱 Cómo comenzar este proyecto
 

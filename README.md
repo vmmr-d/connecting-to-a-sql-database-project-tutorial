@@ -32,35 +32,3 @@ Once you are finished solving the exercises make sure to make your changes, then
 # Solutions
 
 We also incorporated the solution samples on `./src/solution.py` that we strongly suggest you only use if you are stuck for more than 30min or if you have already finished and want to compare it with your approach.
-
-# Postgres Commands
-
-Make sure the PSQL command line Postgres client is installed in your environment, you can try the following command to make sure.
-
-```
-$ psql --version
-```
-
-Note: If you get an error, try [following this instructions](https://www.timescale.com/blog/how-to-install-psql-on-mac-ubuntu-debian-windows/) to install psql on your computer.
-
-## Delete Database
-
-Delete databases on your localhost with:
-```
-$ dropdb -h localhost -U <username> <db_name>
-```
-
-## Create a Database
-
-Create databases on your localhost with:
-```
-$ createdb -h localhost -U <username> <db_name>
-```
-
-## Manipulate data by connecting to the database
-
-Connect to the Posgres command line client:
-```
-$ psql -h localhost -U <username> <db_name>
-```
-

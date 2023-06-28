@@ -2,21 +2,22 @@
 
 ## Parte 1: Crear una base de datos en la nube usando Heroku
 
-1. Crea una cuenta en heroku.com.
-2. Inicia sesión en tu cuenta de heroku.
-3. Crea una [nueva aplicación](https://dashboard.heroku.com/new-app).
-4. Busque los "complementos" de la aplicación en [el Heroku Marketplace]( https://elements.heroku.com/addons), la base de datos MySQL será un "complemento" para tu aplicación.
-5. Busca el complemento [JawDB Maria DB](./assets/jawdb.png) y ábrelo haciendo clic en él.
-6. Una vez que estés en la [página de destino oficial del complemento JawDB / MariaDB](https://elements.heroku.com/addons/jawsdb-maria), instala JawDB [en tu aplicación](./assets/mariadb.png), elije el `Plan gratuito` y busca tu aplicación.
-![install jawdb](./assets/dyml1T8uI3.gif)
-7. Espera un par de segundos, una vez que esté instalado, ve a la pestaña de recursos de tu proyecto y el servicio JawDB MariaDB debería aparecer allí como "complemento instalado".
-![install jawdb](./assets/bjEDNLpKKq.gif)
-8. Haz clic en el complemento `JawDB Maria` y te mostrará las credenciales de tu base de datos.
-9. Esta es una muestra de [cómo se verán las credenciales de tu base de datos](./assets/JawsDB.png).
+Asegurate de tener instalado el cliente de Postgres para la terminal llamado PSQL. Puedes verificar si lo tienes corriendo el siguiente comando:
+
+```
+$ psql --version
+```
+
+Nota: Si da un error, intenta [seguir las intrucciones en este articulo](https://www.timescale.com/blog/how-to-install-psql-on-mac-ubuntu-debian-windows/).
+
+1. Crea una nueva base de datos dentro del motor de Postgres personalizando y corriendo el siguiente comando: `$ createdb -h localhost -U <username> <db_name>`
+2. Conectate al motor de Postgres para utilizar tu base de datos, manipular tablas y datos:  `$ psql -h localhost -U <username> <db_name>`
+
+Cuanto estés dentro de PSQL podrás crear tablas; hacer consultas; insertar, actualizer o eliminar datos y mucho mas!
 
 ## Parte 2: Comprende la estructura de la plantilla de tu proyecto
 
-Se ha creado tu base de datos SQL, pero aún no hay tablas. Se conectará a tu base de datos MariaDB vacía y creará algunas tablas desde Python utilizando scripts SQL que ya te hemos proporcionado dentro de la carpeta `./src/sql/`:
+Se ha creado tu base de datos SQL, pero aún no hay tablas. Se conectará a tu base de datos vacía y creará algunas tablas desde Python utilizando scripts SQL que ya te hemos proporcionado dentro de la carpeta `./src/sql/`:
 
 - `./src/sql/create.sql` con todas las tablas que necesitas crear. Manos en la creación de esas tablas.
 - `./src/sql/insert.sql` con todos los valores de la tabla que se insertarán en cada tabla.
@@ -30,7 +31,7 @@ Otras cosas importantes a mencionar sobre la estructura:
 
 ### Parte 3: Instalar dependencias
 
-Hay un archivo en este proyecto llamado `./requirements.txt` que contiene la lista de bibliotecas de python que usaremos en este proyecto como Pandas, PyMysql, SQLAlchemy, etc. Ejecuta el comando `pip install -r requirements.txt` para instalar todas las bibliotecas a la vez.
+Hay un archivo en este proyecto llamado `./requirements.txt` que contiene la lista de bibliotecas de python que usaremos en este proyecto como Pandas, psycopg2, SQLAlchemy, etc. Ejecuta el comando `pip install -r requirements.txt` para instalar todas las bibliotecas a la vez.
 
 Esto es posible gracias a PIP (el administrador de paquetes de Python más popular) y cómo los profesionales instalan las dependencias de sus proyectos.
 
@@ -50,7 +51,7 @@ DB_HOST = 'f565gmi022AD.cbetxkdyhwsb.us-east-1.rds.amazonaws.com'
 DB_NAME = 'y9uflxvx2hsf11g3f'
 ```
 
-Nota: asegúrate de reemplazar estos valores con tus credenciales de base de datos reales que se encuentran en el panel de control de JawDB Maria.
+Nota: asegúrate de reemplazar estos valores con tus credenciales de base de datos reales.
 
 ### Parte 5: Empezar a programar
 
@@ -62,7 +63,7 @@ Todo tu código de Python siempre debe estar dentro de la carpeta `src`, esta ta
 def connect():
     global engine # esto nos permite usar una variable global llamada motor
     # Una "cadena de conexión" es básicamente una cadena que contiene todas las credenciales de la base de datos juntas
-    connection_string = f"mysql+pymysql://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}@{os.getenv('DB_HOST')}/{os.getenv('DB_NAME')}?autocommit=true"
+    connection_string = f"postgres://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}@{os.getenv('DB_HOST')}/{os.getenv('DB_NAME')}?autocommit=true"
     print("Starting the connection...")
     engine = create_engine(connection_string)
     engine.connect()
