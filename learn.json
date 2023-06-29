@@ -6,9 +6,9 @@
 	"status": "published",
 	"translations": ["us"],
 	"video-id": "nJzQt_3p_TM",
-	"technologies": ["sql", "mysql", "mariadb", "sqlalchemy"],
+	"technologies": ["sql", "mysql", "postgresql", "sqlalchemy"],
 	"difficulty": "beginner",
 	"syntax": "python",
 	"duration" : 2,
-	"description" : "Create a SQL database using the MariaDB engine and using a professional python project structure that includes PIP and environment variables."
+	"description" : "Create a SQL database using the PostgreSQL engine and using a professional python project structure that includes PIP and environment variables."
 }
