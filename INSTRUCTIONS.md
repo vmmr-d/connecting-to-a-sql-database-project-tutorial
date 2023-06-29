@@ -1,49 +1,49 @@
-# Connecting to a SQL database from Python
+# Connecting to a SQL database using Python
 
-## Part 1: Creating a database locally
+## Part 1: Create a database using PostgreSQL
 
-Make sure the PSQL command line Postgres client is installed in your environment, you can try the following command to make sure.
+Make sure you have installed the Postgres client for the terminal called `PSQL`. You can check if you have it by running the following command:
 
 ```
 $ psql --version
 ```
 
-Note: If you get an error, try [following this instructions](https://www.timescale.com/blog/how-to-install-psql-on-mac-ubuntu-debian-windows/) to install psql on your computer.
+> NOTE: If you get an error, try [following this instructions](https://www.timescale.com/blog/how-to-install-psql-on-mac-ubuntu-debian-windows/) to install psql on your computer.
 
+Now, review the contents of the `./.env` file and follow the steps described below:
 
-1. Create a Database with `createdb -h localhost -U <username> <db_name>`.
-2. Connect to the Posgres command line client with `$ psql -h localhost -U <username> <db_name>`
+1. Create a new database within the Postgres engine by customizing and executing the following command: `$ createdb -h localhost -U <username> <db_name>`
+2. Connect to the Postgres engine to use your database, manipulate tables and data: `$ psql -h localhost -U <username> <db_name>`
 
-You are able to run any SQL command inside your recently created database, you can do queries, create tables, delete tables, etc.
+> NOTE: Remember to check the `./.env` file information to get the `username` and `db_name`.
 
+Once you are inside PSQL you will be able to create tables, make queries, insert, update or delete data and much more!
 
-## Part 2: Understand your project template structure
+## Part 2: Understand the structure of your project's template
 
-Your SQL database has been created, but there are no tables yet. You are going to connect to your empty database and create some tables from Python using SQL Scripts we have alreadly provided for you inside the `./src/sql/` folder:
+Once you have completed the above steps, you will have created your SQL database, but there are no tables yet. Next, you need to connect to your empty database and you will create some tables using Python via SQL scripts that you will find in the `./src/sql/` folder:
 
-- `./src/sql/create.sql` with all the tables you need to create. Hands on creating those tables.
-- `./src/sql/insert.sql` with all the table values to be inserted into each table.
-- `./src/sql/drop.sql` contains the SQL code to delete the tables, very useful to clean your database.
+- `./src/sql/create.sql` with all the tables you need to create. Hands on creation of those tables.
+- `./src/sql/insert.sql` with all the table values that will be inserted into each table.
+- `./src/sql/drop.sql` contains the SQL code to drop the tables, very useful to clean up your database.
 
 Other important things to mention about the structure:
 
-- Professional projects usually have a `./src` folder that contains all the "coding files" (the files that the developer will code).
-- The `./assets` is irrelevant to you, it contains all the images we needed for this tutorial.
-- The `root` of any professional project usally contains all the configuration files like `.gitignore`, `requirements.txt`, etc. You will learn more about these files during the rest of the project.
+- Professional projects usually have a `./src` folder that contains all the **coding files** (the files that the developer will implement).
+- `./assets` is irrelevant to you, it contains all the images we needed for this tutorial.
+- The `root` of any professional project usually contains all the configuration files such as `.gitignore`, `requirements.txt`, etc. You will learn more about these files during the rest of the project.
 
-### Part 3: Install dependencies
+## Part 3: Install dependencies
 
-There is a file in this project called `./requirements.txt` that contains the list of python libraries we will be using in this project like Pandas, psycopg2, SQLAlchemy, etc. Run the `pip install -r requirements.txt` command to install all the libraries at once.
+There is a file in this project called `./requirements.txt` that contains the list of python libraries that we will use in this project such as Pandas, psycopg2, SQLAlchemy, etc. Run the `pip install -r requirements.txt` command to install all the libraries at once using the PIP (*Package Installer of Python*) wizard.
 
-This is possible thanks to PIP (the most popular Python package manager) and how professionals install their project dependencies.
+> NOTE: Make sure that the command does not generate any errors in the terminal.
 
-> NOTE: Make sure the command does not output any errors in the terminal.
+## Part 4: Include your database credentials
 
-### Part 4: Add your database credentials 
+Create your `./.env` file. It is good practice for every Python application to have a `.env` file. The file name starts with a `.` dot because it is a configuration file that will be ignored by your Git repository. It should be ignored because we will add our database password inside that file.
 
-Create your .env file: It is a good practice that every python application must have a `.env` file, the file name starts with a `.` dot because its a configuration file that will be ignored by your Git repository. It needs to be ignored because we are going to be adding our database password inside that file. 
-
-Type your database credentials inside the `.env` file, the file will end up looking like this:
+Write your database credentials inside the `.env` file. It should look something like this (the values included are for example):
 
 ```
 DB_USER = 'hkietatgd83b4x0l'
@@ -53,18 +53,18 @@ DB_HOST = 'f565gmi022AD.cbetxkdyhwsb.us-east-1.rds.amazonaws.com'
 DB_NAME = 'y9uflxvx2hsf11g3f'
 ```
 
-Note: Please make sure to replace this values with your real database credentials.
+> NOTE: Be sure to replace these values with your actual database credentials.
 
-### Part 5: Start coding
+## Part 5: Start programming
 
-All your Python code must always be inside the `src` folder, this is also another good practice.
+All your Python code should always be inside the `src` folder, this is also another good practice.
 
-1. The `connect` function contains the necesary code to connect to your python database, if you watch carefully you will see how it loads all the environment variables into a `connection_string` variable and then it calls the `create_engine` and `connect` fuctions.
+1. The `connect` function contains the code needed to connect to your Python database. If you look closely you will see how it loads all the environment variables into a variable called `connection_string` and then calls the `create_engine` and `connect` functions.
 
 ```py
 def connect():
-    global engine # this allows us to use a global variable called engine
-    # A "connection string" is basically a string that contains all the databse credentials together
+    global engine # This allows us to use a global variable called engine
+    # A "connection string" is basically a string containing all database credentials together.
     connection_string = f"postgresql://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}@{os.getenv('DB_HOST')}/{os.getenv('DB_NAME')}?autocommit=true"
     print("Starting the connection...")
     engine = create_engine(connection_string)
@@ -72,26 +72,27 @@ def connect():
     return engine
 ```
 
-## 📝 Instructions:
+## 📝 Instructions
 
-1. Let's create a file inside the `src` folder called `./src/app.py`.
+1. Let's create a file inside the `src` folder named `./src/app.py`.
 
-> Note: This file will contain most of your application code; The database conection and the database queries.
+> NOTE: This file will contain most of your application code, as well as the database connection and database queries.
 
-2. Create a cloud database using Heroku as indicated in part 1.
+2. Create a PostgreSQL database as described in part 1.
 
-3. In your app.py connect to your database
+3. In your `app.py`, program the connection to your database.
 
-4. Create the tables indicated in `./src/sql/create.sql`
+> NOTE: You can try to reuse the `connect` Python function provided above.
 
-5. Insert the data indicated in `./src/sql/insert.sql` to your recently created tables.
+4. Create the tables indicated in `./src/sql/create.sql`.
 
-6. Use pandas to print one of the tables as dataframes using read_sql function
+5. Insert the data specified in `./src/sql/insert.sql` into the tables created in the previous point.
 
+6. Use Pandas to print one of the tables as DataFrame using the `read_sql` function of this library...
 
-## Aditional tips
+## Additional tips
 
-- To login inside postgress localy you can run: `psql -h localhost -u postgres`
-- Connect to a remote database: `psql -h <REMOTE HOST> -p <REMOTE PORT> -U <DB_USER> <DB_NAME>`
-- Delete databases on your localhost with: `$ dropdb -h localhost -U <username> <db_name>`
-- You can try creating a cloud database on render.com by [following these commands](https://render.com/docs/databases#connecting-from-outside-render).
+- Log into your database using `psql -h localhost -u postgres`
+- Connect to a remote database using: `psql -h <REMOTE_HOST> -p <REMOTE_PORT> -U <DB_USER> <DB_NAME>`
+- Deletes a database: `$ dropdb -h localhost -U <username> <db_name>`
+- Create a DB in the render.com cloud and connect [following these commands](https://render.com/docs/databases#connecting-from-outside-render).
