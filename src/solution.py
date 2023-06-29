@@ -18,10 +18,11 @@ CREATE TABLE IF NOT EXISTS publishers(
     PRIMARY KEY(publisher_id)
 );
 """)
+## Rest of sentences of create.sql script
 
 # 3) Execute the SQL sentences to insert your data using the SQLAlchemy's execute function
 engine.execute("INSERT INTO publishers(publisher_id,name) values (1,'O Reilly Media');")
-
+## Rest of sentences of insert.sql script
 
 # 4) Use pandas to print one of the tables as dataframes using read_sql function
 result_dataFrame = pd.read_sql("Select * from publishers;", engine)
