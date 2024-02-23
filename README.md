@@ -23,7 +23,7 @@ https://github.com/4GeeksAcademy/connecting-to-a-sql-database-project-tutorial
 
 **👉 Please follow these steps on** [how to start a coding project](https://4geeks.com/lesson/how-to-start-a-project).
 
-Once Gitpod VSCode has finished opening you can go ahead and open the `problems.ipynb` file and start solving each exercise inside the notebook.
+Once Codespaces VSCode has finished opening you can go ahead and open the `app.py` file and start solving each exercise inside the notebook.
 
 ## 🚛 How to deliver this project
 
