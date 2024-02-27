@@ -14,8 +14,8 @@ Dentro de este repositorio, encontrarás un archivo llamado `./INSTRUCTIONS.es.m
 La forma más fácil de comenzar a trabajar en este proyecto es usando Gitpod:
 
 1. Haz una fork de [este repositorio](https://github.com/4geeksacademy/connecting-to-a-sql-database-project-tutorial) en tu cuenta de Github.
-2. Abre el fork recién creado en Gitpod usando la [extensión del botón Gitpod](https://www.gitpod.io/docs/browser-extension/).
-3. Una vez que VSCode de Gitpod haya terminado de abrir, puedes abrir el archivo `problems.ipynb` y comenzar a resolver cada ejercicio dentro del notebook.
+2. Abre el fork recién creado en tu editor de codigo.
+3. Una vez que haya terminado de abrir, puedes abrir el archivo `app.py` y comenzar a resolver cada ejercicio dentro del notebook.
 
 ## 🚛 Cómo entregar este proyecto
 
