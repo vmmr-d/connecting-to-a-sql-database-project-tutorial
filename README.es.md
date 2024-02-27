@@ -11,11 +11,19 @@ Dentro de este repositorio, encontrarás un archivo llamado `./INSTRUCTIONS.es.m
 
 ## 🌱 Cómo comenzar este proyecto
 
-La forma más fácil de comenzar a trabajar en este proyecto es usando Gitpod:
+Este proyecto viene con los archivos necesarios para comenzar a trabajar de inmediato.
 
-1. Haz una fork de [este repositorio](https://github.com/4geeksacademy/connecting-to-a-sql-database-project-tutorial) en tu cuenta de Github.
-2. Abre el fork recién creado en tu editor de codigo.
-3. Una vez que haya terminado de abrir, puedes abrir el archivo `app.py` y comenzar a resolver cada ejercicio dentro del notebook.
+Recomendamos abrir este mismo repositorio utilizando una herramienta de aprovisionamiento como [Codespaces](https://4geeks.com/lesson/what-is-github-codespaces) (recomendada) o [Gitpod](https://4geeks.com/lesson/how-to-use-gitpod). Alternativamente, puedes clonarlo en tu computadora local usando el comando `git clone`.
+
+Este es el repositorio que necesitas hacer fork y abrir:
+
+```
+https://github.com/4GeeksAcademy/connecting-to-a-sql-database-project-tutorial
+```
+
+**👉 Por favor sigue estos pasos en** [como iniciar un proyecto de programación](https://4geeks.com/lesson/how-to-start-a-project).
+
+Una vez que haya terminado de abrir, puedes abrir el archivo `app.py` y comenzar a resolver.
 
 ## 🚛 Cómo entregar este proyecto
 
