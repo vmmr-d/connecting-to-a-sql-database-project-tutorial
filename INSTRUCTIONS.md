@@ -43,7 +43,7 @@ There is a file in this project called `./requirements.txt` that contains the li
 
 Create your `./.env` file. It is good practice for every Python application to have a `.env` file. The file name starts with a `.` dot because it is a configuration file that will be ignored by your Git repository. It should be ignored because we will add our database password inside that file.
 
-Write your database credentials inside the `.env` file. It should look something like this (the values included are, for example):
+Write your database credentials inside the `.env` file. It should look something like this (the values included serve as examples):
 
 ```text
 DB_USER = 'hkietatgd83b4x0l'
@@ -63,7 +63,7 @@ All your Python code should always be inside the `src` folder; this is also anot
 
 ```py
 def connect():
-    global engine # This allows us to use a global variable called engine
+    global engine # This allows us to use a global variable called "engine"
     # A "connection string" is basically a string containing all database credentials together.
     connection_string = f"postgresql://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}@{os.getenv('DB_HOST')}/{os.getenv('DB_NAME')}?autocommit=true"
     print("Starting the connection...")
