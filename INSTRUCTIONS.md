@@ -31,7 +31,7 @@ Other important things to mention about the structure:
 
 - Professional projects usually have a `./src` folder that contains all the **coding files** (the files that the developer will implement).
 - `./assets` is irrelevant to you; it contains all the images we needed for this tutorial.
-- The `root` of any professional project usually contains all the configuration files such as `.gitignore`, `requirements.txt`, etc. You will learn more about these files during the rest of the project.
+- The root of any professional project usually contains all the configuration files such as `.gitignore`, `requirements.txt`, etc. You will learn more about these files during the rest of the project.
 
 ## Part 3: Install dependencies
 
