@@ -8,7 +8,7 @@ Asegúrate de tener instalado el cliente de Postgres para la terminal llamado `P
 $ psql --version
 ```
 
-> NOTA: Si da un error, intenta [seguir las instrucciones en este artículo](https://www.timescale.com/blog/how-to-install-psql-on-mac-ubuntu-debian-windows/) para instalar `psql`.
+> NOTA: Si da un error, intenta [seguir las instrucciones en este artículo](https://www.timescale.com/blog/how-to-install-psql-on-mac-ubuntu-debian-windows/) para instalar `psql` en tu computadora.
 
 A continuación, revisa el contenido del archivo `./.env` y sigue los pasos que se describen a continuación:
 
