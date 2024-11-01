@@ -6,7 +6,7 @@
 	"status": "published",
 	"translations": ["us"],
 	"video-id": "nJzQt_3p_TM",
-	"technologies": ["sql", "mysql", "postgresql", "sqlalchemy"],
+	"technologies": ["sql", "mysql", "postgresql", "sqlalchemy", "psycopg2", "pandas", "dotenv", "machine learning", "data science"],
 	"difficulty": "beginner",
 	"syntax": "python",
 	"duration" : 2,
